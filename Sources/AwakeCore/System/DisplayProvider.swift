@@ -43,6 +43,7 @@ public final class CoreGraphicsDisplayProvider: DisplayProvider {
         let names = screenNames()
         return ids.prefix(Int(count)).map { id in
             let builtin = CGDisplayIsBuiltin(id) != 0
+            let mode = CGDisplayCopyDisplayMode(id)
             return DisplayInfo(
                 id: id,
                 name: names[id] ?? (builtin ? "Built-in Display" : "Display \(id)"),
@@ -50,8 +51,8 @@ public final class CoreGraphicsDisplayProvider: DisplayProvider {
                 isActive: CGDisplayIsActive(id) != 0,
                 isAsleep: CGDisplayIsAsleep(id) != 0,
                 isMain: CGDisplayIsMain(id) != 0,
-                pixelWidth: CGDisplayPixelsWide(id),
-                pixelHeight: CGDisplayPixelsHigh(id)
+                pixelWidth: mode?.pixelWidth ?? CGDisplayPixelsWide(id),
+                pixelHeight: mode?.pixelHeight ?? CGDisplayPixelsHigh(id)
             )
         }
     }
