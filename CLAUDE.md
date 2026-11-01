@@ -29,7 +29,8 @@ selectable trigger holds. Default trigger: external display online and the built
   or crashing restores normal behaviour. The quit path must call `controller.shutdown()`.
 - Format with `swift format` (`.swift-format`); `make lint` must pass.
 - The popover uses a pure-SwiftUI switch (`SwitchToggleStyle`) so `ImageRenderer` previews render.
-- Needs Swift 6.1+ (`isolated deinit`). Strict concurrency; system protocols are `@MainActor`.
+- Needs Swift 6.2+ / Xcode 26 (`isolated deinit`); CI and release workflows select Xcode 26
+  explicitly. Strict concurrency; system protocols are `@MainActor`.
 - Conventional commits. Keep `README.md` and `CHANGELOG.md` in step with behaviour.
 
 ## Adding a trigger
