@@ -13,9 +13,11 @@ enum PreviewRenderer {
 
     static func run(outputDirectory: URL) -> Int32 {
         do {
-            try FileManager.default.createDirectory(at: outputDirectory, withIntermediateDirectories: true)
+            try FileManager.default.createDirectory(
+                at: outputDirectory, withIntermediateDirectories: true)
         } catch {
-            FileHandle.standardError.write(Data("cannot create \(outputDirectory.path): \(error)\n".utf8))
+            FileHandle.standardError.write(
+                Data("cannot create \(outputDirectory.path): \(error)\n".utf8))
             return 73
         }
 
@@ -35,7 +37,9 @@ enum PreviewRenderer {
         for scenario in scenarios {
             for scheme in [ColorScheme.light, .dark] {
                 let name = "\(scenario.name)-\(scheme == .dark ? "dark" : "light").png"
-                if render(scenario, scheme: scheme, to: outputDirectory.appendingPathComponent(name)) {
+                if render(
+                    scenario, scheme: scheme, to: outputDirectory.appendingPathComponent(name))
+                {
                     print("wrote \(name)")
                 } else {
                     failures += 1
@@ -85,7 +89,8 @@ private enum PreviewData {
 
     static func macbook(asleep: Bool) -> DisplayInfo {
         DisplayInfo(
-            id: 1, name: "Built-in Retina Display", isBuiltin: true, isActive: true, isAsleep: asleep,
+            id: 1, name: "Built-in Retina Display", isBuiltin: true, isActive: true,
+            isAsleep: asleep,
             isMain: true, pixelWidth: 3456, pixelHeight: 2234)
     }
 }

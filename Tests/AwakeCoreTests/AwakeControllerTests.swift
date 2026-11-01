@@ -150,7 +150,8 @@ final class AwakeControllerTests: XCTestCase {
             for scenario in scenarios {
                 displays.displays = scenario
                 controller.refresh()
-                let expected = enabled && controller.selectedRule.shouldKeepAwake(controller.snapshot)
+                let expected =
+                    enabled && controller.selectedRule.shouldKeepAwake(controller.snapshot)
                 XCTAssertEqual(assertion.isHeld, expected)
             }
         }

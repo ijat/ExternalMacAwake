@@ -65,7 +65,9 @@ public final class CoreGraphicsDisplayProvider: DisplayProvider {
 
         // Display sleep/wake does not always trigger a reconfiguration.
         let workspace = NSWorkspace.shared.notificationCenter
-        for name in [NSWorkspace.screensDidSleepNotification, NSWorkspace.screensDidWakeNotification] {
+        for name in [
+            NSWorkspace.screensDidSleepNotification, NSWorkspace.screensDidWakeNotification,
+        ] {
             observers.append(
                 workspace.addObserver(forName: name, object: nil, queue: .main) { _ in
                     MainActor.assumeIsolated { handler() }
@@ -73,7 +75,8 @@ public final class CoreGraphicsDisplayProvider: DisplayProvider {
         }
         observers.append(
             NotificationCenter.default.addObserver(
-                forName: NSApplication.didChangeScreenParametersNotification, object: nil, queue: .main
+                forName: NSApplication.didChangeScreenParametersNotification, object: nil,
+                queue: .main
             ) { _ in
                 MainActor.assumeIsolated { handler() }
             })

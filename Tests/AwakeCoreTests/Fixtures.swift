@@ -3,7 +3,9 @@ import CoreGraphics
 @testable import AwakeCore
 
 enum Fixtures {
-    static func external(id: CGDirectDisplayID = 2, active: Bool = true, asleep: Bool = false) -> DisplayInfo {
+    static func external(id: CGDirectDisplayID = 2, active: Bool = true, asleep: Bool = false)
+        -> DisplayInfo
+    {
         DisplayInfo(
             id: id, name: "Studio Display", isBuiltin: false, isActive: active, isAsleep: asleep,
             isMain: false, pixelWidth: 5120, pixelHeight: 2880)

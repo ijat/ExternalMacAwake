@@ -77,7 +77,8 @@ public final class AwakeController {
         if isEnabled && selectedRule.shouldKeepAwake(latest) {
             do {
                 if !assertion.isHeld {
-                    try assertion.acquire(reason: "Keeping the display awake: \(selectedRule.title)")
+                    try assertion.acquire(
+                        reason: "Keeping the display awake: \(selectedRule.title)")
                 }
                 newState = .active
             } catch {
