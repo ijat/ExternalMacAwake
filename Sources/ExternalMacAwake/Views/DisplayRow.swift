@@ -17,7 +17,7 @@ struct DisplayRow: View {
                     .lineLimit(1)
                     .truncationMode(.tail)
                 HStack(spacing: 5) {
-                    Text("\(display.pixelWidth) × \(display.pixelHeight)")
+                    Text(verbatim: "\(display.pixelWidth) × \(display.pixelHeight)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                         .monospacedDigit()

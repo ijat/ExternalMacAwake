@@ -64,6 +64,9 @@ final class LoginItemModel {
     var isOn: Bool { status == .enabled || status == .requiresApproval }
     var isAvailable: Bool { status != .unavailable }
 
+    /// Re-reads the status from the system. Leaves `errorMessage` alone so a failure stays visible.
+    func refresh() { status = service.status }
+
     func setEnabled(_ enabled: Bool) {
         do {
             try service.setEnabled(enabled)
