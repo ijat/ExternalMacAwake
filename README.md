@@ -7,6 +7,14 @@ A small macOS menu-bar app that keeps your external display awake while the lapt
 off, for example when the lid is closed and the Mac is driving a monitor. Switch it off, or quit
 it, and your Mac goes back to its normal sleep behaviour.
 
+<p align="center">
+  <img src="docs/images/popover-active-dark.png" width="300"
+       alt="ExternalMacAwake popover in dark mode: state Awake, a Studio Display and the asleep built-in display listed, Keep awake and Launch at login switched on">
+  &nbsp;&nbsp;
+  <img src="docs/images/popover-waiting-light.png" width="300"
+       alt="ExternalMacAwake popover in light mode: state Waiting because the built-in display is still on, the same three triggers listed">
+</p>
+
 ## Why
 
 With the built-in display off, macOS still dims and sleeps the external monitor after your
@@ -73,7 +81,7 @@ Items. The bundle identifier is `my.ijat.ExternalMacAwake`.
 
 ## Build from source
 
-Requires Xcode 16.3 or later (Swift 6.1+, which provides `swift format`).
+Requires Xcode 26 or later (Swift 6.2+, which provides `swift format` and `isolated deinit`).
 
 ```sh
 make build      # debug build
