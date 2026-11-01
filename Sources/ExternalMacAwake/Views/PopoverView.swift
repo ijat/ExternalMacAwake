@@ -30,6 +30,13 @@ struct PopoverView: View {
         }
         .padding(16)
         .frame(width: 320)
+        // The user can approve or remove the login item in System Settings while the app runs.
+        // `.onAppear` alone may fire only once for a `.window` MenuBarExtra, so also refresh
+        // each time the popover window becomes key.
+        .onAppear { loginItem.refresh() }
+        .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification)) {
+            _ in loginItem.refresh()
+        }
     }
 }
 
