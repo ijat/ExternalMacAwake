@@ -49,7 +49,8 @@ private struct Card<Content: View>: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(12)
-        .background(.quaternary.opacity(0.5), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+        .background(
+            .quaternary.opacity(0.5), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
     }
 }
 
@@ -75,7 +76,7 @@ private struct Footer: View {
             .buttonStyle(.plain)
             .keyboardShortcut("q")
             .accessibilityLabel("Quit")
-                .accessibilityHint("Releases the keep-awake request and quits")
+            .accessibilityHint("Releases the keep-awake request and quits")
         }
     }
 

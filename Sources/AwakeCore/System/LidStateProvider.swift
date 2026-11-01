@@ -12,7 +12,8 @@ public final class IOKitLidStateProvider: LidStateProvider {
     public init() {}
 
     public func isLidClosed() -> Bool? {
-        let service = IOServiceGetMatchingService(kIOMainPortDefault, IOServiceMatching("IOPMrootDomain"))
+        let service = IOServiceGetMatchingService(
+            kIOMainPortDefault, IOServiceMatching("IOPMrootDomain"))
         guard service != IO_OBJECT_NULL else { return nil }
         defer { IOObjectRelease(service) }
 

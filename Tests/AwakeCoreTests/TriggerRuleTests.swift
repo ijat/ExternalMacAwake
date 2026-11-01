@@ -20,7 +20,8 @@ final class TriggerRuleTests: XCTestCase {
             name: "external only, lid open", displays: [Fixtures.external()], lid: false,
             externalWithBuiltinOff: true, lidClosed: false, anyExternal: true),
         Row(
-            name: "external + active built-in", displays: [Fixtures.builtin(), Fixtures.external()],
+            name: "external + active built-in",
+            displays: [Fixtures.builtin(), Fixtures.external()],
             lid: false, externalWithBuiltinOff: false, lidClosed: false, anyExternal: true),
         Row(
             name: "external + asleep built-in",
@@ -76,7 +77,8 @@ final class TriggerRuleTests: XCTestCase {
     }
 
     func testUnknownIDFallsBackToDefault() {
-        XCTAssertEqual(TriggerCatalog.standard.rule(for: "nope").id, ExternalWithBuiltinOffRule.ruleID)
+        XCTAssertEqual(
+            TriggerCatalog.standard.rule(for: "nope").id, ExternalWithBuiltinOffRule.ruleID)
     }
 
     func testRuleMetadataIsFilledIn() {

@@ -69,7 +69,8 @@ final class LoginItemModel {
             try service.setEnabled(enabled)
             errorMessage = nil
         } catch {
-            errorMessage = "Could not \(enabled ? "enable" : "disable") launch at login: \(error.localizedDescription)"
+            errorMessage =
+                "Could not \(enabled ? "enable" : "disable") launch at login: \(error.localizedDescription)"
         }
         status = service.status
     }

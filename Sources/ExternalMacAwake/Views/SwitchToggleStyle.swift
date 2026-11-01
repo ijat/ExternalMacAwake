@@ -11,7 +11,9 @@ struct SwitchToggleStyle: ToggleStyle {
                 Spacer(minLength: 8)
                 ZStack(alignment: configuration.isOn ? .trailing : .leading) {
                     Capsule()
-                        .fill(configuration.isOn ? Color.accentColor : Color.secondary.opacity(0.35))
+                        .fill(
+                            configuration.isOn ? Color.accentColor : Color.secondary.opacity(0.35)
+                        )
                         .frame(width: 36, height: 20)
                     Circle()
                         .fill(.white)
