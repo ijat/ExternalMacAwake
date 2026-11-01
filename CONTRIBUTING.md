@@ -2,7 +2,9 @@
 
 ## Setup
 
-Xcode 16.3 or later. No other dependencies.
+Xcode 26 or later (Swift 6.2+). No other dependencies. CI selects the newest Xcode 26 on the runner;
+its `swift format` may be a different version from yours, so if `make lint` passes locally but fails
+in CI, run `make format` with Xcode 26 and commit the result.
 
 ```sh
 make build

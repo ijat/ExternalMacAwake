@@ -19,6 +19,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Select Xcode 26
+        # The runner defaults to Xcode 16.4 (Swift 6.1); `isolated deinit` needs Swift 6.2+.
+        run: |
+          xcode="$(ls -d /Applications/Xcode_26*.app | sort -V | tail -n 1)"
+          echo "Using $xcode"
+          sudo xcode-select -s "$xcode"
+
       - name: Toolchain
         run: swift --version
 
